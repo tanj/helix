@@ -1,0 +1,137 @@
+# A unofficial port of VIM's zenburn theme: https://github.com/jnurmine/Zenburn/
+
+"comment" = { fg = "comment", modifiers = ["italic"] }
+"comment.block.documentation" = { fg = "zenburn_green_p2", modifiers = ["bold"] }
+"constant" = { fg = "zenburn_green_p4", modifiers = ["bold"] }
+"constant.character.escape" = { fg = "zenburn_red_p1", modifiers = ["bold"] }
+"constant.numeric" = "numeric"
+"constant.numeric.float" = "zenburn_blue_p4"
+"constructor" = "zenburn_blue_p2"
+"function" = "zenburn_cyan"
+"function.macro" = { fg = "zenburn_cyan", modifiers = ["bold"] }
+"keyword" = { fg = "zenburn_yellow", modifiers = ["bold"] }
+"keyword.storage-class" = { fg = "zenburn_yellow_m2", modifiers = ["bold"] }
+"label" = { fg = "zenburn_fg_p1", modifiers = ["underlined"] }
+"operator" = { fg = "zenburn_fg_m2", modifiers = [] }
+"special" = "zenburn_orange"
+"string" = "zenburn_red"
+"type" = { fg = "zenburn_blue", modifiers = ["bold"] }
+"variable" = "zenburn_orange"
+"variable.builtin" = { fg = "zenburn_blue_m2", modifiers = ["bold"] }
+"variable.other.member" = "zenburn_yellow_m1"
+"punctuation.delimiter" = "zenburn_bg_p4"
+"attribute" = "zenburn_orange"
+"tag" = "zenburn_cyan"
+
+"markup" = "zenburn_magenta"
+"markup.heading" = "zenburn_blue"
+"markup.heading.1" = "zenburn_orange"
+"markup.heading.2" = "zenburn_green_p4"
+"markup.heading.3" = "zenburn_blue_m1"
+"markup.heading.4" = "zenburn_yellow_m1"
+"markup.heading.5" = "zenburn_cyan"
+"markup.heading.6" = "zenburn_green_p2"
+"markup.heading.marker" = {fg = "zenburn_fg_m1", modifiers = ["bold"]}
+"markup.list" = { fg = "zenburn_yellow", modifiers = ["bold"]}
+"markup.link" = "zenburn_orange"
+"markup.raw" = "zenburn_red"
+"markup.quote" = "zenburn_cyan"
+
+"ui.background" = { bg = "bg" }
+"ui.cursor" = { fg = "zenburn_bg_m2", bg = "zenburn_green_p2", modifiers = ["bold"] }
+"ui.cursor.match" = { fg = "zenburn_magenta", modifiers = ["underlined", "bold"] }
+"ui.cursor.primary" = { fg = "zenburn_bg_m2", bg="zenburn_green_m2", modifiers = ["bold"]}
+"ui.linenr" = { fg = "#9fafaf", bg = "#262626" }
+"ui.linenr.selected" = { modifiers = ["bold"] }
+"ui.menu" = { fg = "#9f9f9f", bg = "uibg" }
+"ui.menu.selected" = { fg = "#d0d0a0", bg = "#242424", modifiers = ["bold"] }
+"ui.popup" = { bg = "uibg" }
+"ui.selection" = { bg = "#304a3d" }
+"ui.selection.primary" = { bg = "#2f2f2f" }
+"ui.statusline" = { bg = "statusbg", fg = "#ccdc90" }
+"ui.statusline.inactive" = { fg = '#2e3330', bg = '#88b090' }
+"ui.text" = { fg = "normal" }
+"ui.virtual.inlay-hint" = { fg = "comment" }
+"ui.help" = { fg = "white", bg = "black" }
+"ui.virtual.ruler" = { bg = "#484848" }
+"ui.virtual.whitespace" = { fg = "#5b605e", modifiers = ["bold"] }
+
+
+"ui.virtual.indent-guide" = "#4f4f4f"
+
+"diff.plus" = { fg = "zenburn_green" }
+"diff.delta" = { fg = "zenburn_bg_p3" }
+"diff.minus" = { fg = "zenburn_red" }
+
+"diagnostic" = { bg = "statusbg" }
+"diagnostic.error" = { fg = "errorfg", bg = "errorbg" }
+"ui.gutter" = { bg = "statusbg" }
+"hint" = { fg = "numeric", bg = "statusbg" }
+"warning" = "numeric"
+"error" = "errorfg"
+"info" = { fg = "zenburn_orange", modifiers = ["bold"] }
+
+[palette]
+comment = "#7f9f7f"
+bg = "#3f3f3f"
+uibg = "#2c2e2e"
+constant = "#dca3a3"
+normal = "#dcdccc"
+todo = "#dfdfdf"
+errorfg = "#e37170"
+errorbg = "#3d3535"
+statusbg = "#313633"
+numeric = "#8cd0d3"
+"zenburn_fg_m2" = "#dfdfdf"
+"zenburn_fg_m1" = "#656555"
+"zenburn_fg_m05" = "#989890"
+"zenburn_fg" = "#dcdccc"
+"zenburn_fg_p1" = "#ffffef"
+"zenburn_fg_p2" = "#fffffd"
+"zenburn_bg_m2" = "#000000"
+"zenburn_bg_m1" = "#2b2b2b"
+"zenburn_bg_m08" = "#303030"
+"zenburn_bg_m05" = "#383838"
+"zenburn_bg" = "#3f3f3f"
+"zenburn_bg_p05" = "#494949"
+"zenburn_bg_p1" = "#4f4f4f"
+"zenburn_bg_p2" = "#5f5f5f"
+"zenburn_bg_p3" = "#6f6f6f"
+"zenburn_bg_p4" = "#8f8f8f"
+"zenburn_red_m6" = "#6c3333"
+"zenburn_red_m5" = "#7c4343"
+"zenburn_red_m4" = "#8c5353"
+"zenburn_red_m3" = "#9c6363"
+"zenburn_red_m2" = "#ac7373"
+"zenburn_red_m1" = "#bc8383"
+"zenburn_red" = "#cc9393"
+"zenburn_red_p1" = "#dca3a3"
+"zenburn_red_p2" = "#ecb3b3"
+"zenburn_red_p3" = "#9c6363"
+"zenburn_red_p4" = "#8c5353"
+"zenburn_orange" = "#dfaf8f"
+"zenburn_yellow_m2" = "#d0bf8f"
+"zenburn_yellow_m1" = "#e0cf9f"
+"zenburn_yellow" = "#f0dfaf"
+"zenburn_green_m5" = "#2f4f2f"
+"zenburn_green_m4" = "#3f5f3f"
+"zenburn_green_m3" = "#4f6f4f"
+"zenburn_green_m2" = "#5f7f5f"
+"zenburn_green_m1" = "#6f8f6f"
+"zenburn_green" = "#7f9f7f"
+"zenburn_green_p1" = "#8fb28f"
+"zenburn_green_p2" = "#9fc59f"
+"zenburn_green_p3" = "#afd8af"
+"zenburn_green_p4" = "#bfebbf"
+"zenburn_cyan" = "#93e0e3"
+"zenburn_blue_p4" = "#c0bed1"
+"zenburn_blue_p3" = "#bde0f3"
+"zenburn_blue_p2" = "#ace0e3"
+"zenburn_blue_p1" = "#94bff3"
+"zenburn_blue" = "#8cd0d3"
+"zenburn_blue_m1" = "#7cb8bb"
+"zenburn_blue_m2" = "#6ca0a3"
+"zenburn_blue_m3" = "#5c888b"
+"zenburn_blue_m4" = "#4c7073"
+"zenburn_blue_m5" = "#366060"
+"zenburn_magenta" = "#dc8cc3"
