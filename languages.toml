@@ -78,7 +78,7 @@ source = { git = "https://github.com/FuelLabs/tree-sitter-sway", rev = "e491a005
 name = "toml"
 scope = "source.toml"
 injection-regex = "toml"
-file-types = ["toml"]
+file-types = ["toml", "poetry.lock"]
 roots = []
 comment-token = "#"
 language-server = { command = "taplo", args = ["lsp", "stdio"] }
@@ -160,7 +160,7 @@ indent = { tab-width = 2, unit = "  " }
 name = "json"
 scope = "source.json"
 injection-regex = "json"
-file-types = ["json", "jsonc", "arb"]
+file-types = ["json", "jsonc", "arb", "ipynb", "geojson"]
 roots = []
 language-server = { command = "vscode-json-language-server", args = ["--stdio"] }
 auto-format = true
@@ -253,6 +253,7 @@ roots = ["shard.yml", "shard.lock"]
 comment-token = "#"
 indent = { tab-width = 2, unit = "  " }
 grammar = "ruby"
+language-server = { command = "crystalline", args = ["--stdio"] }
 
 [[language]]
 name = "c-sharp"
@@ -653,7 +654,7 @@ source = { git = "https://github.com/gbprod/tree-sitter-twig", rev = "807b293fec
 name = "latex"
 scope = "source.tex"
 injection-regex = "tex"
-file-types = ["tex"]
+file-types = ["tex", "sty", "cls"]
 roots = []
 comment-token = "%"
 language-server = { command = "texlab" }
@@ -730,7 +731,7 @@ name = "java"
 scope = "source.java"
 injection-regex = "java"
 file-types = ["java"]
-roots = ["pom.xml", "build.gradle"]
+roots = ["pom.xml", "build.gradle", "build.gradle.kts"]
 language-server = { command = "jdtls" }
 indent = { tab-width = 4, unit = "    " }
 
@@ -1158,7 +1159,7 @@ source = { git = "https://github.com/UserNobody14/tree-sitter-dart", rev = "2d7f
 [[language]]
 name = "scala"
 scope = "source.scala"
-roots = ["build.sbt", "build.sc", "build.gradle", "pom.xml", ".scala-build"]
+roots = ["build.sbt", "build.sc", "build.gradle", "build.gradle.kts", "pom.xml", ".scala-build"]
 file-types = ["scala", "sbt", "sc"]
 comment-token = "//"
 indent = { tab-width = 2, unit = "  " }
@@ -1181,7 +1182,7 @@ language-server = { command = "docker-langserver", args = ["--stdio"] }
 
 [[grammar]]
 name = "dockerfile"
-source = { git = "https://github.com/camdencheek/tree-sitter-dockerfile", rev = "7af32bc04a66ab196f5b9f92ac471f29372ae2ce" }
+source = { git = "https://github.com/camdencheek/tree-sitter-dockerfile", rev = "8ee3a0f7587b2bd8c45c8cb7d28bd414604aec62" }
 
 [[language]]
 name = "git-commit"
@@ -2084,7 +2085,7 @@ source = { git = "https://github.com/Unoqwy/tree-sitter-kdl", rev = "e1cd292c6d1
 name = "xml"
 scope = "source.xml"
 injection-regex = "xml"
-file-types = ["xml", "mobileconfig", "plist", "xib", "storyboard", "svg", "xsd"]
+file-types = ["xml", "mobileconfig", "plist", "xib", "storyboard", "svg", "xsd", "gml"]
 indent = { tab-width = 2, unit = "  " }
 roots = []
 
@@ -2465,10 +2466,6 @@ file-types = [ "cabal" ]
 roots = ["cabal.project", "Setup.hs"]
 indent = { tab-width = 2, unit = "  " }
 comment-token = "--"
-
-[[grammar]]
-name = "cabal"
-source = { git = "https://gitlab.com/magus/tree-sitter-cabal", rev = "7d5fa6887ae05a0b06d046f1e754c197c8ad869b" }
 
 [[language]]
 name = "hurl"

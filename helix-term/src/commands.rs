@@ -99,6 +99,13 @@ impl<'a> Context<'a> {
         }));
     }
 
+    /// Call `replace_or_push` on the Compositor
+    pub fn replace_or_push_layer<T: Component>(&mut self, id: &'static str, component: T) {
+        self.callback = Some(Box::new(move |compositor: &mut Compositor, _| {
+            compositor.replace_or_push(id, component);
+        }));
+    }
+
     #[inline]
     pub fn on_next_key(
         &mut self,
@@ -5200,7 +5207,8 @@ async fn shell_impl_async(
     let output = if let Some(mut stdin) = process.stdin.take() {
         let input_task = tokio::spawn(async move {
             if let Some(input) = input {
-                helix_view::document::to_writer(&mut stdin, encoding::UTF_8, &input).await?;
+                helix_view::document::to_writer(&mut stdin, (encoding::UTF_8, false), &input)
+                    .await?;
             }
             Ok::<_, anyhow::Error>(())
         });
