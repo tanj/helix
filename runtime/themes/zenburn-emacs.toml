@@ -22,6 +22,8 @@
 "punctuation.delimiter" = "zenburn_bg_p4"
 "attribute" = "zenburn_orange"
 "tag" = "zenburn_cyan"
+"module" = "zenburn_yellow"
+"namespace" = "zenburn_yellow"
 
 "markup" = "zenburn_magenta"
 "markup.heading" = "zenburn_blue"
