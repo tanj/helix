@@ -421,6 +421,7 @@ impl Default for StatusLineConfig {
                 E::Mode,
                 E::Spinner,
                 E::FileName,
+                E::ReadOnlyIndicator,
                 E::FileModificationIndicator,
             ],
             center: vec![],
@@ -464,14 +465,17 @@ pub enum StatusLineElement {
     /// The LSP activity spinner
     Spinner,
 
-    /// The base file name, including a dirty flag if it's unsaved
+    /// The file basename (the leaf of the open file's path)
     FileBaseName,
 
-    /// The relative file path, including a dirty flag if it's unsaved
+    /// The relative file path
     FileName,
 
     // The file modification indicator
     FileModificationIndicator,
+
+    /// An indicator that shows `"[readonly]"` when a file cannot be written
+    ReadOnlyIndicator,
 
     /// The file encoding
     FileEncoding,
@@ -989,6 +993,13 @@ pub enum Action {
     Replace,
     HorizontalSplit,
     VerticalSplit,
+}
+
+impl Action {
+    /// Whether to align the view to the cursor after executing this action
+    pub fn align_view(&self, view: &View, new_doc: DocumentId) -> bool {
+        !matches!((self, view.doc == new_doc), (Action::Load, false))
+    }
 }
 
 /// Error thrown on failed document closed
