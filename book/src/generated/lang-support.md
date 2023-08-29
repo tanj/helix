@@ -45,6 +45,7 @@
 | fortran | ✓ |  | ✓ | `fortls` |
 | fsharp | ✓ |  |  | `fsautocomplete` |
 | gdscript | ✓ | ✓ | ✓ |  |
+| gemini | ✓ |  |  |  |
 | git-attributes | ✓ |  |  |  |
 | git-commit | ✓ | ✓ |  |  |
 | git-config | ✓ |  |  |  |
@@ -145,6 +146,7 @@
 | sql | ✓ |  |  |  |
 | sshclientconfig | ✓ |  |  |  |
 | starlark | ✓ | ✓ |  |  |
+| strace | ✓ |  |  |  |
 | svelte | ✓ |  | ✓ | `svelteserver` |
 | sway | ✓ | ✓ | ✓ | `forc` |
 | swift | ✓ |  |  | `sourcekit-lsp` |
