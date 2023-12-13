@@ -1624,7 +1624,7 @@ auto-format = true
 
 [[grammar]]
 name = "gleam"
-source = { git = "https://github.com/gleam-lang/tree-sitter-gleam", rev = "a59aadf3d7c11702cad244e7cd6b67b34ca9c16a" }
+source = { git = "https://github.com/gleam-lang/tree-sitter-gleam", rev = "b2afa4fd6bb41a7bf912b034c653c90af7ae5122" }
 
 [[language]]
 name = "ron"
@@ -2220,7 +2220,7 @@ formatter = { command = "dfmt" }
 
 [[grammar]]
 name = "d"
-source = { git = "https://github.com/gdamore/tree-sitter-d", rev="601c4a1e8310fb2f3c43fa8a923d0d27497f3c04" }
+source = { git = "https://github.com/gdamore/tree-sitter-d", rev = "5566f8ce8fc24186fad06170bbb3c8d97c935d74" }
 
 [[language]]
 name = "vhs"
@@ -2362,7 +2362,7 @@ source = { git = "https://github.com/hh9527/tree-sitter-wit", rev = "c917790ab9a
 [[language]]
 name = "env"
 scope = "source.env"
-file-types = [".env", ".env.local", ".env.development", ".env.production", ".env.dist", ".envrc"]
+file-types = [".env", ".env.local", ".env.development", ".env.production", ".env.dist", ".envrc", ".envrc.local", ".envrc.private"]
 injection-regex = "env"
 comment-token = "#"
 indent = { tab-width = 4, unit = "\t" }
