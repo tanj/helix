@@ -191,6 +191,7 @@ auto-format = true
 comment-token = "//"
 language-servers = [ "rust-analyzer" ]
 indent = { tab-width = 4, unit = "    " }
+persistent-diagnostic-sources = ["rustc", "clippy"]
 
 [language.auto-pairs]
 '(' = ')'
@@ -346,7 +347,9 @@ file-types = [
   "jsonld",
   ".vuerc",
   "composer.lock",
-  ".watchmanconfig"
+  ".watchmanconfig",
+  "avsc",
+  ".prettierrc"
 ]
 language-servers = [ "vscode-json-language-server" ]
 auto-format = true
@@ -954,6 +957,19 @@ indent = { tab-width = 2, unit = "  " }
 [[grammar]]
 name = "java"
 source = { git = "https://github.com/tree-sitter/tree-sitter-java", rev = "09d650def6cdf7f479f4b78f595e9ef5b58ce31e" }
+
+[[language]]
+name = "smali"
+scope = "source.smali"
+injection-regex = "smali"
+file-types = ["smali"]
+comment-token = "#"
+roots = []
+indent = { tab-width = 4, unit = "    " }
+
+[[grammar]]
+name = "smali"
+source = { git = "https://github.com/amaanq/tree-sitter-smali", rev = "5ae51e15c4d1ac93cba6127caf3d1f0a072c140c" }
 
 [[language]]
 name = "ledger"
@@ -2306,7 +2322,8 @@ file-types = [
   "xpdl",
   "xul",
   "xoml",
-  "musicxml"
+  "musicxml",
+  "glif"
 ]
 indent = { tab-width = 2, unit = "  " }
 
@@ -2698,6 +2715,7 @@ file-types = [ "cabal" ]
 roots = ["cabal.project", "Setup.hs"]
 indent = { tab-width = 2, unit = "  " }
 comment-token = "--"
+language-servers = [ "haskell-language-server" ]
 
 [[language]]
 name = "hurl"
