@@ -1,3 +1,6 @@
 inherits = "zenburn-emacs"
 
 "ui.background" = {}
+"ui.linenr" = {bg = {}}
+"ui.virtual.ruler" = {bg = {}}
+"ui.gutter" = {bg = {}}
