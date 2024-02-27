@@ -14,6 +14,7 @@
 | cabal |  |  |  | `haskell-language-server-wrapper` |
 | cairo | ✓ | ✓ | ✓ | `cairo-language-server` |
 | capnp | ✓ |  | ✓ |  |
+| cel | ✓ |  |  |  |
 | clojure | ✓ |  |  | `clojure-lsp` |
 | cmake | ✓ | ✓ | ✓ | `cmake-language-server` |
 | comment | ✓ |  |  |  |
@@ -29,6 +30,7 @@
 | devicetree | ✓ |  |  |  |
 | dhall | ✓ | ✓ |  | `dhall-lsp-server` |
 | diff | ✓ |  |  |  |
+| docker-compose | ✓ |  | ✓ | `docker-compose-langserver` |
 | dockerfile | ✓ |  |  | `docker-langserver` |
 | dot | ✓ |  |  | `dot-language-server` |
 | dtd | ✓ |  |  |  |
@@ -42,6 +44,7 @@
 | erb | ✓ |  |  |  |
 | erlang | ✓ | ✓ |  | `erlang_ls` |
 | esdl | ✓ |  |  |  |
+| fidl | ✓ |  |  |  |
 | fish | ✓ | ✓ | ✓ |  |
 | forth | ✓ |  |  | `forth-lsp` |
 | fortran | ✓ |  | ✓ | `fortls` |
@@ -63,12 +66,14 @@
 | gotmpl | ✓ |  |  | `gopls` |
 | gowork | ✓ |  |  | `gopls` |
 | graphql | ✓ |  |  | `graphql-lsp` |
+| groovy | ✓ |  |  |  |
 | hare | ✓ |  |  |  |
 | haskell | ✓ | ✓ |  | `haskell-language-server-wrapper` |
 | haskell-persistent | ✓ |  |  |  |
-| hcl | ✓ |  | ✓ | `terraform-ls` |
+| hcl | ✓ | ✓ | ✓ | `terraform-ls` |
 | heex | ✓ | ✓ |  | `elixir-ls` |
 | hocon | ✓ |  | ✓ |  |
+| hoon | ✓ |  |  |  |
 | hosts | ✓ |  |  |  |
 | html | ✓ |  |  | `vscode-html-language-server` |
 | hurl | ✓ |  | ✓ |  |
@@ -109,7 +114,7 @@
 | nasm | ✓ | ✓ |  |  |
 | nickel | ✓ |  | ✓ | `nls` |
 | nim | ✓ | ✓ | ✓ | `nimlangserver` |
-| nix | ✓ |  |  | `nil` |
+| nix | ✓ | ✓ |  | `nil` |
 | nu | ✓ |  |  | `nu` |
 | nunjucks | ✓ |  |  |  |
 | ocaml | ✓ |  | ✓ | `ocamllsp` |
@@ -154,6 +159,7 @@
 | smithy | ✓ |  |  | `cs` |
 | sml | ✓ |  |  |  |
 | solidity | ✓ |  |  | `solc` |
+| spicedb | ✓ |  |  |  |
 | sql | ✓ |  |  |  |
 | sshclientconfig | ✓ |  |  |  |
 | starlark | ✓ | ✓ |  |  |
