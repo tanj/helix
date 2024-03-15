@@ -45,11 +45,13 @@ kotlin-language-server = { command = "kotlin-language-server" }
 lean = { command = "lean", args = [ "--server" ] }
 ltex-ls = { command = "ltex-ls" }
 markdoc-ls = { command = "markdoc-ls", args = ["--stdio"] }
+markdown-oxide = { command = "markdown-oxide" }
 marksman = { command = "marksman", args = ["server"] }
 metals = { command = "metals", config = { "isHttpEnabled" = true } }
 mint = { command = "mint", args = ["ls"] }
 nil = { command = "nil" }
 nimlangserver = { command = "nimlangserver" }
+nimlsp = { command = "nimlsp" }
 nls = { command = "nls" }
 nu-lsp = { command = "nu", args = [ "--lsp" ] }
 ocamllsp = { command = "ocamllsp" }
@@ -1028,7 +1030,7 @@ source = { git = "https://github.com/tree-sitter/tree-sitter-julia", rev = "8fb3
 name = "java"
 scope = "source.java"
 injection-regex = "java"
-file-types = ["java", "jav"]
+file-types = ["java", "jav", "pde"]
 roots = ["pom.xml", "build.gradle", "build.gradle.kts"]
 language-servers = [ "jdtls" ]
 indent = { tab-width = 2, unit = "  " }
@@ -1093,7 +1095,7 @@ indent = { tab-width = 2, unit = "  " }
 
 [[grammar]]
 name = "ocaml"
-source = { git = "https://github.com/tree-sitter/tree-sitter-ocaml", rev = "23d419ba45789c5a47d31448061557716b02750a", subpath = "ocaml" }
+source = { git = "https://github.com/tree-sitter/tree-sitter-ocaml", rev = "9965d208337d88bbf1a38ad0b0fe49e5f5ec9677", subpath = "ocaml" }
 
 [[language]]
 name = "ocaml-interface"
@@ -1113,7 +1115,7 @@ indent = { tab-width = 2, unit = "  " }
 
 [[grammar]]
 name = "ocaml-interface"
-source = { git = "https://github.com/tree-sitter/tree-sitter-ocaml", rev = "23d419ba45789c5a47d31448061557716b02750a", subpath = "interface" }
+source = { git = "https://github.com/tree-sitter/tree-sitter-ocaml", rev = "9965d208337d88bbf1a38ad0b0fe49e5f5ec9677", subpath = "interface" }
 
 [[language]]
 name = "lua"
@@ -1129,7 +1131,7 @@ language-servers = [ "lua-language-server" ]
 
 [[grammar]]
 name = "lua"
-source = { git = "https://github.com/MunifTanjim/tree-sitter-lua", rev = "887dfd4e83c469300c279314ff1619b1d0b85b91" }
+source = { git = "https://github.com/tree-sitter-grammars/tree-sitter-lua", rev = "88e446476a1e97a8724dff7a23e2d709855077f2" }
 
 [[language]]
 name = "svelte"
@@ -1439,7 +1441,7 @@ scope = "source.md"
 injection-regex = "md|markdown"
 file-types = ["md", "markdown", "mkd", "mdwn", "mdown", "markdn", "mdtxt", "mdtext", "workbook", { glob = "PULLREQ_EDITMSG" }]
 roots = [".marksman.toml"]
-language-servers = [ "marksman" ]
+language-servers = [ "marksman", "markdown-oxide" ]
 indent = { tab-width = 2, unit = "  " }
 block-comment-tokens = { start = "<!--", end = "-->" }
 
@@ -1492,7 +1494,20 @@ name = "dockerfile"
 scope = "source.dockerfile"
 injection-regex = "docker|dockerfile"
 roots = ["Dockerfile", "Containerfile"]
-file-types = [{ glob = "Dockerfile*" }, { glob = "dockerfile*" }, { glob = "Containerfile*" }, { glob = "containerfile*" }]
+file-types = [
+  "Dockerfile",
+  { glob = "Dockerfile" },
+  { glob = "Dockerfile.*" },
+  "dockerfile",
+  { glob = "dockerfile" },
+  { glob = "dockerfile.*" },
+  "Containerfile",
+  { glob = "Containerfile" },
+  { glob = "Containerfile.*" },
+  "containerfile",
+  { glob = "containerfile" },
+  { glob = "containerfile.*" },
+]
 comment-token = "#"
 indent = { tab-width = 2, unit = "  " }
 language-servers = [ "docker-langserver" ]
@@ -1919,7 +1934,7 @@ source = { git = "https://github.com/PrestonKnopp/tree-sitter-godot-resource", r
 name = "nu"
 scope = "source.nu"
 injection-regex = "nu"
-file-types = ["nu"]
+file-types = ["nu", "nuon"]
 shebangs = ["nu"]
 comment-token = "#"
 indent = { tab-width = 2, unit = "  " }
@@ -2155,6 +2170,7 @@ grammar = "python"
 [[language]]
 name = "elvish"
 scope = "source.elvish"
+shebangs = ["elvish"]
 file-types = ["elv"]
 comment-token = "#"
 indent = { tab-width = 2, unit = "  " }
@@ -2469,7 +2485,8 @@ file-types = [
   "xul",
   "xoml",
   "musicxml",
-  "glif"
+  "glif",
+  "ui"
 ]
 block-comment-tokens = { start = "<!--", end = "-->" }
 indent = { tab-width = 2, unit = "  " }
@@ -2858,10 +2875,9 @@ language-servers = [ "nimlangserver" ]
 "'" = "'"
 '{' = '}'
 
-# Nim's tree-sitter grammar is in heavy development.
 [[grammar]]
 name = "nim"
-source = { git = "https://github.com/aMOPel/tree-sitter-nim", rev = "240239b232550e431d67de250d1b5856209e7f06" }
+source = { git = "https://github.com/alaviss/tree-sitter-nim", rev = "c5f0ce3b65222f5dbb1a12f9fe894524881ad590" }
 
 [[language]]
 name = "cabal"
@@ -2913,9 +2929,9 @@ scope = "source.just"
 file-types = [{ glob = "justfile" }, { glob = "Justfile" }, { glob = ".justfile" }, { glob = ".Justfile" }]
 injection-regex = "just"
 comment-token = "#"
-indent = { tab-width = 4, unit = "\t" }
-auto-format = true
-formatter = { command = "just", args = ["--dump"] }
+indent = { tab-width = 4, unit = "    " }
+# auto-format = true
+# formatter = { command = "just", args = ["--dump"] } # Please see: https://github.com/helix-editor/helix/issues/9703
 
 [[grammar]]
 name = "just"
@@ -3243,3 +3259,29 @@ indent = { tab-width = 4, unit = "    " }
 [[grammar]]
 name = "fidl"
 source = { git = "https://github.com/google/tree-sitter-fidl", rev = "bdbb635a7f5035e424f6173f2f11b9cd79703f8d" }
+
+[[language]]
+name = "powershell"
+scope = "source.powershell"
+injection-regex = "(pwsh|powershell)"
+file-types = [ "ps1", "psm1", "psd1", "pscc", "psrc" ]
+shebangs = [ "pwsh", "powershell" ]
+comment-token = '#'
+block-comment-tokens = { start = "<#", end = "#>" }
+indent = { tab-width = 4, unit = "    " }
+
+[[grammar]]
+name = "powershell"
+source = { git = "https://github.com/airbus-cert/tree-sitter-powershell", rev = "c9316be0faca5d5b9fd3b57350de650755f42dc0" }
+
+[[language]]
+name = "ld"
+scope = "source.ld"
+injection-regex = "ld"
+file-types = ["ld"]
+block-comment-tokens = { start = "/*", end = "*/" }
+indent = { tab-width = 2, unit = "  " }
+
+[[grammar]]
+name = "ld"
+source = { git = "https://github.com/mtoohey31/tree-sitter-ld", rev = "81978cde3844bfc199851e39c80a20ec6444d35e" }

@@ -94,6 +94,7 @@
 | kdl | ✓ | ✓ | ✓ |  |
 | kotlin | ✓ |  |  | `kotlin-language-server` |
 | latex | ✓ | ✓ |  | `texlab` |
+| ld | ✓ |  | ✓ |  |
 | lean | ✓ |  |  | `lean` |
 | ledger | ✓ |  |  |  |
 | llvm | ✓ | ✓ | ✓ |  |
@@ -104,7 +105,7 @@
 | lua | ✓ | ✓ | ✓ | `lua-language-server` |
 | make | ✓ |  | ✓ |  |
 | markdoc | ✓ |  |  | `markdoc-ls` |
-| markdown | ✓ |  |  | `marksman` |
+| markdown | ✓ |  |  | `marksman`, `markdown-oxide` |
 | markdown.inline | ✓ |  |  |  |
 | matlab | ✓ | ✓ | ✓ |  |
 | mermaid | ✓ |  |  |  |
@@ -132,6 +133,7 @@
 | po | ✓ | ✓ |  |  |
 | pod | ✓ |  |  |  |
 | ponylang | ✓ | ✓ | ✓ |  |
+| powershell | ✓ |  |  |  |
 | prisma | ✓ |  |  | `prisma-language-server` |
 | prolog |  |  |  | `swipl` |
 | protobuf | ✓ | ✓ | ✓ | `bufls`, `pb` |
