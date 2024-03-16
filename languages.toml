@@ -1640,6 +1640,18 @@ name = "elm"
 source = { git = "https://github.com/elm-tooling/tree-sitter-elm", rev = "df4cb639c01b76bc9ac9cc66788709a6da20002c" }
 
 [[language]]
+name = "iec61131-3-st"
+scope = "source.st"
+injection-regex = "st"
+file-types = ["st"]
+comment-token = "//"
+block-comment-tokens = { start = "(*", end = "*)" }
+
+[[grammar]]
+name = "iec61131-3-st"
+source = { git = "https://github.com/tanj/tree-sitter-structured-text.git", rev = "4334b32e4a9b4d9926ceaa6a768c2603ae275e41" }
+
+[[language]]
 name = "iex"
 scope = "source.iex"
 injection-regex = "iex"
