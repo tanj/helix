@@ -244,6 +244,18 @@ name = "rust"
 source = { git = "https://github.com/tree-sitter/tree-sitter-rust", rev = "0431a2c60828731f27491ee9fdefe25e250ce9c9" }
 
 [[language]]
+name = "structured-text"
+scope = "source.st"
+injection-regex = "st"
+file-types = ["st"]
+comment-token = "//"
+block-comment-tokens = { start = "(*", end = "*)" }
+
+[[grammar]]
+name = "structured-text"
+source = { git = "https://github.com/tanj/tree-sitter-structured-text.git", rev = "60ac58a2dcdb9e820770559d0cffbfa3bd661938" }
+
+[[language]]
 name = "sway"
 scope = "source.sway"
 injection-regex = "sway"
@@ -1638,18 +1650,6 @@ indent = { tab-width = 4, unit = "    " }
 [[grammar]]
 name = "elm"
 source = { git = "https://github.com/elm-tooling/tree-sitter-elm", rev = "df4cb639c01b76bc9ac9cc66788709a6da20002c" }
-
-[[language]]
-name = "iec61131-3-st"
-scope = "source.st"
-injection-regex = "st"
-file-types = ["st"]
-comment-token = "//"
-block-comment-tokens = { start = "(*", end = "*)" }
-
-[[grammar]]
-name = "iec61131-3-st"
-source = { git = "https://github.com/tanj/tree-sitter-structured-text.git", rev = "4334b32e4a9b4d9926ceaa6a768c2603ae275e41" }
 
 [[language]]
 name = "iex"
