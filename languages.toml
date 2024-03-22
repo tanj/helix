@@ -253,7 +253,7 @@ block-comment-tokens = { start = "(*", end = "*)" }
 
 [[grammar]]
 name = "structured-text"
-source = { git = "https://github.com/tanj/tree-sitter-structured-text.git", rev = "174268d642b3dd71bb25fff8b203619559662ef5" }
+source = { git = "https://github.com/tanj/tree-sitter-structured-text.git", rev = "ae70e1cc68680f83a4476cc157ca9b3f1895de66" }
 
 [[language]]
 name = "sway"
