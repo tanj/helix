@@ -10,6 +10,7 @@
 "constructor" = "zenburn_blue_p2"
 "function" = "zenburn_cyan"
 "function.macro" = { fg = "zenburn_cyan", modifiers = ["bold"] }
+"function.builtin" = { fg = "zenburn_blue_p1", modifiers = ["bold"] }
 "keyword" = { fg = "zenburn_yellow", modifiers = ["bold"] }
 "keyword.storage-class" = { fg = "zenburn_yellow_m2", modifiers = ["bold"] }
 "label" = { fg = "zenburn_fg_p1", modifiers = ["underlined"] }
