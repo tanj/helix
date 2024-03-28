@@ -1,7 +1,8 @@
 # A unofficial port of VIM's zenburn theme: https://github.com/jnurmine/Zenburn/
 
 "comment" = { fg = "comment", modifiers = ["italic"] }
-"comment.block.documentation" = { fg = "zenburn_green_p2", modifiers = ["bold"] }
+"comment.block.documentation" = { fg = "zenburn_fg_m05", modifiers = ["bold"] }
+"comment.documentation" = { fg = "zenburn_fg_m05", modifiers = ["bold"] }
 "constant" = { fg = "zenburn_green_p4", modifiers = ["bold"] }
 "constant.character.escape" = { fg = "zenburn_red_p1", modifiers = ["bold"] }
 "constant.numeric" = "numeric"
