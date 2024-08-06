@@ -1545,7 +1545,7 @@ source = { git = "https://github.com/Flakebi/tree-sitter-tablegen", rev = "568dd
 name = "markdown"
 scope = "source.md"
 injection-regex = "md|markdown"
-file-types = ["md", "markdown", "mkd", "mkdn", "mdwn", "mdown", "markdn", "mdtxt", "mdtext", "workbook", { glob = "PULLREQ_EDITMSG" }]
+file-types = ["md", "markdown", "mdx", "mkd", "mkdn", "mdwn", "mdown", "markdn", "mdtxt", "mdtext", "workbook", { glob = "PULLREQ_EDITMSG" }]
 roots = [".marksman.toml"]
 language-servers = [ "marksman", "markdown-oxide" ]
 indent = { tab-width = 2, unit = "  " }
@@ -1867,7 +1867,7 @@ auto-format = true
 
 [[grammar]]
 name = "gleam"
-source = { git = "https://github.com/gleam-lang/tree-sitter-gleam", rev = "bcf9c45b56cbe46e9dac5eee0aee75df270000ac" }
+source = { git = "https://github.com/gleam-lang/tree-sitter-gleam", rev = "426e67087fd62be5f4533581b5916b2cf010fb5b" }
 
 [[language]]
 name = "ron"
@@ -2007,12 +2007,12 @@ shebangs = []
 roots = ["project.godot"]
 auto-format = true
 formatter = { command = "gdformat", args = ["-"] }
-comment-token = "#"
+comment-tokens = ["#", "##"]
 indent = { tab-width = 4, unit = "\t" }
 
 [[grammar]]
 name = "gdscript"
-source = { git = "https://github.com/PrestonKnopp/tree-sitter-gdscript", rev = "a4b57cc3bcbfc24550e858159647e9238e7ad1ac" }
+source = { git = "https://github.com/PrestonKnopp/tree-sitter-gdscript", rev = "1f1e782fe2600f50ae57b53876505b8282388d77" }
 
 [[language]]
 name = "godot-resource"
@@ -2027,7 +2027,7 @@ indent = { tab-width = 4, unit = "\t" }
 
 [[grammar]]
 name = "godot-resource"
-source = { git = "https://github.com/PrestonKnopp/tree-sitter-godot-resource", rev = "b6ef0768711086a86b3297056f9ffb5cc1d77b4a" }
+source = { git = "https://github.com/PrestonKnopp/tree-sitter-godot-resource", rev = "2ffb90de47417018651fc3b970e5f6b67214dc9d" }
 
 [[language]]
 name = "nu"
@@ -2067,7 +2067,7 @@ indent = { tab-width = 8, unit = "\t" }
 
 [[grammar]]
 name = "hare"
-source = { git = "https://git.sr.ht/~ecmma/tree-sitter-hare", rev = "2495958aaf3f93581c87ec020164255e80655331" }
+source = { git = "https://git.sr.ht/~ecs/tree-sitter-hare", rev = "07035a248943575444aa0b893ffe306e1444c0ab" }
 
 [[language]]
 name = "devicetree"
@@ -2385,7 +2385,7 @@ language-servers = [ "slint-lsp" ]
 
 [[grammar]]
 name = "slint"
-source = { git = "https://github.com/slint-ui/tree-sitter-slint", rev = "0701312b74b87fe20e61aa662ba41c5815b5d428" }
+source = { git = "https://github.com/slint-ui/tree-sitter-slint", rev = "4a0558cc0fcd7a6110815b9bbd7cc12d7ab31e74" }
 
 [[language]]
 name = "task"
@@ -3085,7 +3085,7 @@ source = { git = "https://github.com/lefp/tree-sitter-opencl", rev = "8e1d24a570
 [[language]]
 name = "just"
 scope = "source.just"
-file-types = [{ glob = "justfile" }, { glob = "Justfile" }, { glob = ".justfile" }, { glob = ".Justfile" }]
+file-types = ["just", { glob = "justfile" }, { glob = "Justfile" }, { glob = ".justfile" }, { glob = ".Justfile" }]
 injection-regex = "just"
 comment-token = "#"
 indent = { tab-width = 4, unit = "    " }
@@ -3094,7 +3094,7 @@ indent = { tab-width = 4, unit = "    " }
 
 [[grammar]]
 name = "just"
-source = { git = "https://github.com/IndianBoy42/tree-sitter-just", rev = "8af0aab79854aaf25b620a52c39485849922f766" }
+source = { git = "https://github.com/IndianBoy42/tree-sitter-just", rev = "379fbe36d1e441bc9414ea050ad0c85c9d6935ea" }
 
 [[language]]
 name = "gn"
@@ -3215,6 +3215,19 @@ grammar = "jinja2"
 name = "jinja2"
 source = { git = "https://github.com/varpeti/tree-sitter-jinja2", rev = "a533cd3c33aea6acb0f9bf9a56f35dcfe6a8eb53" }
 
+[[language]]
+name = "jjdescription"
+scope = "jj.description"
+file-types = [{ glob = "*.jjdescription" }]
+comment-token = "JJ:"
+indent = { tab-width = 2, unit = "  " }
+rulers = [51, 73]
+text-width = 72
+
+[[grammar]]
+name = "jjdescription"
+source = { git = "https://github.com/kareigu/tree-sitter-jjdescription", rev = "2ddec6cad07b366aee276a608e1daa2c29d3caf2" }
+
 [[grammar]]
 name = "wren"
 source = { git = "https://git.sr.ht/~jummit/tree-sitter-wren", rev = "6748694be32f11e7ec6b5faeb1b48ca6156d4e06" }
@@ -3257,7 +3270,7 @@ auto-format = true
 
 [[grammar]]
 name = "todotxt"
-source = { git = "https://github.com/arnarg/tree-sitter-todotxt", rev = "0207f6a4ab6aeafc4b091914d31d8235049a2578" }
+source = { git = "https://github.com/arnarg/tree-sitter-todotxt", rev = "3937c5cd105ec4127448651a21aef45f52d19609" }
 
 [[language]]
 name = "strace"
@@ -3489,7 +3502,7 @@ name = "tcl"
 scope = "source.tcl"
 injection-regex = "tcl"
 file-types = [ "tcl" ]
-shebangs = [ "tclish", "jimsh", "wish" ]
+shebangs = [ "tclsh", "tclish", "jimsh", "wish" ]
 comment-token = '#'
 
 [[grammar]]
@@ -3528,7 +3541,7 @@ scope = "source.helm"
 roots = ["Chart.yaml"]
 comment-token = "#"
 language-servers = ["helm_ls"]
-file-types = [ { glob = "templates/*.yaml" }, { glob = "templates/_*.tpl"}, { glob = "templates/NOTES.txt" } ]
+file-types = [ { glob = "templates/*.yaml" }, { glob = "templates/*.yml" }, { glob = "templates/_*.tpl"}, { glob = "templates/NOTES.txt" } ]
 
 [[language]]
 name = "glimmer"
