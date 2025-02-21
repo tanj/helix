@@ -107,7 +107,7 @@ impl KeyTrieNode {
                 (events.join(", "), desc)
             })
             .collect();
-        Info::new(&self.name, &body)
+        Info::new(self.name.clone(), &body)
     }
 }
 

@@ -5633,7 +5633,10 @@ fn wonly(cx: &mut Context) {
 }
 
 fn select_register(cx: &mut Context) {
-    cx.editor.autoinfo = Some(Info::from_registers(&cx.editor.registers));
+    cx.editor.autoinfo = Some(Info::from_registers(
+        "Select register",
+        &cx.editor.registers,
+    ));
     cx.on_next_key(move |cx, event| {
         cx.editor.autoinfo = None;
         if let Some(ch) = event.char() {
@@ -5643,7 +5646,10 @@ fn select_register(cx: &mut Context) {
 }
 
 fn insert_register(cx: &mut Context) {
-    cx.editor.autoinfo = Some(Info::from_registers(&cx.editor.registers));
+    cx.editor.autoinfo = Some(Info::from_registers(
+        "Insert register",
+        &cx.editor.registers,
+    ));
     cx.on_next_key(move |cx, event| {
         cx.editor.autoinfo = None;
         if let Some(ch) = event.char() {
@@ -5660,7 +5666,10 @@ fn insert_register(cx: &mut Context) {
 }
 
 fn copy_between_registers(cx: &mut Context) {
-    cx.editor.autoinfo = Some(Info::from_registers(&cx.editor.registers));
+    cx.editor.autoinfo = Some(Info::from_registers(
+        "Copy from register",
+        &cx.editor.registers,
+    ));
     cx.on_next_key(move |cx, event| {
         cx.editor.autoinfo = None;
 
@@ -5674,7 +5683,10 @@ fn copy_between_registers(cx: &mut Context) {
         };
         let values: Vec<_> = values.map(|value| value.to_string()).collect();
 
-        cx.editor.autoinfo = Some(Info::from_registers(&cx.editor.registers));
+        cx.editor.autoinfo = Some(Info::from_registers(
+            "Copy into register",
+            &cx.editor.registers,
+        ));
         cx.on_next_key(move |cx, event| {
             cx.editor.autoinfo = None;
 
