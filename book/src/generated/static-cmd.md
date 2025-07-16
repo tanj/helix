@@ -153,6 +153,8 @@
 | `goto_last_change` | Goto last change | normal: `` ]G ``, select: `` ]G `` |
 | `goto_line_start` | Goto line start | normal: `` gh ``, `` <home> ``, select: `` gh ``, insert: `` <home> `` |
 | `goto_line_end` | Goto line end | normal: `` gl ``, `` <end> ``, select: `` gl `` |
+| `goto_column` | Goto column | normal: `` g\| `` |
+| `extend_to_column` | Extend to column | select: `` g\| `` |
 | `goto_next_buffer` | Goto next buffer | normal: `` gn ``, select: `` gn `` |
 | `goto_previous_buffer` | Goto previous buffer | normal: `` gp ``, select: `` gp `` |
 | `goto_line_end_newline` | Goto newline at line end | insert: `` <end> `` |
@@ -265,6 +267,8 @@
 | `goto_prev_comment` | Goto previous comment | normal: `` [c ``, select: `` [c `` |
 | `goto_next_test` | Goto next test | normal: `` ]T ``, select: `` ]T `` |
 | `goto_prev_test` | Goto previous test | normal: `` [T ``, select: `` [T `` |
+| `goto_next_xml_element` | Goto next (X)HTML element | normal: `` ]x ``, select: `` ]x `` |
+| `goto_prev_xml_element` | Goto previous (X)HTML element | normal: `` [x ``, select: `` [x `` |
 | `goto_next_entry` | Goto next pairing | normal: `` ]e ``, select: `` ]e `` |
 | `goto_prev_entry` | Goto previous pairing | normal: `` [e ``, select: `` [e `` |
 | `goto_next_paragraph` | Goto next paragraph | normal: `` ]p ``, select: `` ]p `` |
@@ -299,5 +303,7 @@
 | `command_palette` | Open command palette | normal: `` <space>? ``, select: `` <space>? `` |
 | `goto_word` | Jump to a two-character label | normal: `` gw `` |
 | `extend_to_word` | Extend to a two-character label | select: `` gw `` |
-| `goto_next_tabstop` | goto next snippet placeholder |  |
-| `goto_prev_tabstop` | goto next snippet placeholder |  |
+| `goto_next_tabstop` | Goto next snippet placeholder |  |
+| `goto_prev_tabstop` | Goto next snippet placeholder |  |
+| `rotate_selections_first` | Make the first selection your primary one |  |
+| `rotate_selections_last` | Make the last selection your primary one |  |
