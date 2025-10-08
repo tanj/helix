@@ -57,6 +57,7 @@
 | earthfile | ✓ | ✓ | ✓ |  |  | `earthlyls` |
 | edoc | ✓ |  |  |  |  |  |
 | eex | ✓ |  |  |  |  |  |
+| eiffel | ✓ | ✓ | ✓ |  |  | `eiffel-language-server` |
 | ejs | ✓ |  |  |  |  |  |
 | elisp | ✓ |  |  | ✓ |  |  |
 | elixir | ✓ | ✓ | ✓ | ✓ | ✓ | `elixir-ls`, `expert` |
@@ -86,6 +87,7 @@
 | git-ignore | ✓ |  |  |  |  |  |
 | git-notes | ✓ |  |  |  |  |  |
 | git-rebase | ✓ |  |  |  |  |  |
+| gitlab-ci | ✓ | ✓ | ✓ | ✓ | ✓ | `yaml-language-server`, `gitlab-ci-ls` |
 | gjs | ✓ | ✓ | ✓ | ✓ |  | `typescript-language-server`, `vscode-eslint-language-server`, `ember-language-server` |
 | gleam | ✓ | ✓ |  |  | ✓ | `gleam` |
 | glimmer | ✓ |  |  |  |  | `ember-language-server` |
@@ -106,7 +108,7 @@
 | haskell | ✓ | ✓ |  |  |  | `haskell-language-server-wrapper` |
 | haskell-persistent | ✓ |  |  |  |  |  |
 | hcl | ✓ | ✓ | ✓ |  |  | `terraform-ls` |
-| hdl | ✓ |  |  |  |  |  |
+| hdl | ✓ |  |  |  |  | `hdls` |
 | heex | ✓ | ✓ |  |  |  | `elixir-ls`, `expert` |
 | helm | ✓ |  |  |  |  | `helm_ls` |
 | hocon | ✓ | ✓ | ✓ |  |  |  |
@@ -140,14 +142,14 @@
 | julia | ✓ | ✓ | ✓ |  |  | `julia` |
 | just | ✓ | ✓ | ✓ | ✓ |  | `just-lsp` |
 | kconfig | ✓ |  | ✓ |  |  |  |
-| kdl | ✓ | ✓ | ✓ |  |  |  |
+| kdl | ✓ | ✓ | ✓ | ✓ |  |  |
 | koka | ✓ |  | ✓ |  |  | `koka` |
 | kotlin | ✓ | ✓ | ✓ | ✓ |  | `kotlin-language-server` |
-| koto | ✓ | ✓ | ✓ |  |  | `koto-ls` |
+| koto | ✓ | ✓ | ✓ |  | ✓ | `koto-ls` |
 | latex | ✓ | ✓ |  |  |  | `texlab` |
 | ld | ✓ |  | ✓ |  |  |  |
 | ldif | ✓ |  |  |  |  |  |
-| lean | ✓ |  |  |  |  | `lean` |
+| lean | ✓ |  |  |  |  | `lake` |
 | ledger | ✓ |  |  |  |  |  |
 | llvm | ✓ | ✓ | ✓ |  |  |  |
 | llvm-mir | ✓ | ✓ | ✓ |  |  |  |
@@ -167,16 +169,18 @@
 | mermaid | ✓ |  |  |  |  |  |
 | meson | ✓ |  | ✓ |  |  | `mesonlsp` |
 | mint |  |  |  |  |  | `mint` |
+| miseconfig | ✓ | ✓ | ✓ |  |  | `taplo`, `tombi` |
 | mojo | ✓ | ✓ | ✓ |  |  | `pixi` |
 | move | ✓ |  |  |  |  |  |
 | msbuild | ✓ |  | ✓ |  |  |  |
 | nasm | ✓ | ✓ |  |  |  | `asm-lsp` |
+| nearley | ✓ |  |  |  | ✓ |  |
 | nestedtext | ✓ | ✓ | ✓ |  |  |  |
 | nginx | ✓ |  |  |  |  |  |
 | nickel | ✓ |  | ✓ |  |  | `nls` |
 | nim | ✓ | ✓ | ✓ |  |  | `nimlangserver` |
 | nix | ✓ | ✓ | ✓ |  | ✓ | `nil`, `nixd` |
-| nu | ✓ |  |  |  |  | `nu` |
+| nu | ✓ | ✓ | ✓ |  |  | `nu` |
 | nunjucks | ✓ |  |  |  |  |  |
 | ocaml | ✓ |  | ✓ |  |  | `ocamllsp` |
 | ocaml-interface | ✓ |  |  |  |  | `ocamllsp` |
@@ -226,11 +230,12 @@
 | rust-format-args-macro | ✓ | ✓ | ✓ |  | ✓ |  |
 | sage | ✓ | ✓ |  |  |  |  |
 | scala | ✓ | ✓ | ✓ |  |  | `metals` |
-| scheme | ✓ |  | ✓ |  | ✓ |  |
+| scheme | ✓ | ✓ | ✓ |  | ✓ |  |
 | scss | ✓ |  |  |  | ✓ | `vscode-css-language-server` |
 | shellcheckrc | ✓ | ✓ |  |  |  |  |
 | slang | ✓ | ✓ | ✓ |  |  | `slangd` |
 | slint | ✓ | ✓ | ✓ |  |  | `slint-lsp` |
+| slisp | ✓ |  |  | ✓ |  |  |
 | smali | ✓ |  | ✓ |  |  |  |
 | smithy | ✓ |  |  |  |  | `cs` |
 | sml | ✓ |  |  |  |  |  |
@@ -287,6 +292,7 @@
 | werk | ✓ |  |  |  |  |  |
 | wesl | ✓ | ✓ |  |  |  |  |
 | wgsl | ✓ | ✓ | ✓ | ✓ | ✓ | `wgsl-analyzer` |
+| wikitext | ✓ |  |  |  |  | `wikitext-lsp` |
 | wit | ✓ |  | ✓ |  |  |  |
 | wren | ✓ | ✓ | ✓ |  |  |  |
 | xit | ✓ |  |  |  |  |  |
