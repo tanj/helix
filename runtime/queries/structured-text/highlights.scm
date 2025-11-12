@@ -1,7 +1,3 @@
-[
- (builtin_function)
-] @function.builtin
-
 ; ; Keywords
 [
   "ACTION"
@@ -53,7 +49,7 @@
   "OR"
   ;; "PARAMS"
   "PERSISTENT"
-  "POINTER"
+  ; "POINTER"
   "PRIVATE"
   "PROGRAM"
   "PROTECTED"
@@ -93,24 +89,22 @@
 [
   (inline_comment)
   (block_comment)
-] @comment @spell
+] @comment
 
-(doc_comment) @comment.documentation @spell
+(doc_comment) @comment.documentation
 (pragma) @comment.documentation
 
 [
- "SUPER"
- "THIS"
+ (builtin_variable)
 ] @variable.builtin
 
 [
  (variable)
- (identifier)
+ ; (identifier)
  ] @variable
 
-[
- (structure_member)
- ] @variable.member
+(structure_member (variable name: (identifier)@variable.member) ) 
+
 
 [
  (string)
@@ -147,3 +141,7 @@
  ] @type
 
 (call_expression (identifier)) @function
+
+[
+ (builtin_function)
+] @function.builtin
