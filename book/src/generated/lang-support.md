@@ -4,7 +4,7 @@
 | adl | ✓ | ✓ | ✓ |  |  |  |
 | agda | ✓ |  |  |  |  |  |
 | alloy | ✓ |  |  |  |  |  |
-| amber | ✓ |  |  |  |  | `amber-lsp` |
+| amber | ✓ | ✓ | ✓ | ✓ | ✓ | `amber-lsp` |
 | astro | ✓ |  |  |  |  | `astro-ls` |
 | awk | ✓ | ✓ |  |  |  | `awk-language-server` |
 | bash | ✓ | ✓ | ✓ | ✓ | ✓ | `bash-language-server` |
@@ -24,6 +24,7 @@
 | cairo | ✓ | ✓ | ✓ |  |  | `cairo-language-server` |
 | capnp | ✓ |  | ✓ |  |  |  |
 | cel | ✓ |  |  |  |  |  |
+| chuck | ✓ |  |  |  |  |  |
 | circom | ✓ |  |  |  |  | `circom-lsp` |
 | clarity | ✓ |  |  |  |  | `clarinet` |
 | clojure | ✓ | ✓ | ✓ |  | ✓ | `clojure-lsp` |
@@ -69,7 +70,7 @@
 | erb | ✓ |  |  |  |  |  |
 | erlang | ✓ | ✓ |  | ✓ | ✓ | `erlang_ls`, `elp` |
 | esdl | ✓ |  |  |  |  |  |
-| fennel | ✓ |  |  |  |  | `fennel-ls` |
+| fennel | ✓ |  |  |  | ✓ | `fennel-ls` |
 | fga | ✓ | ✓ | ✓ |  |  |  |
 | fidl | ✓ |  |  |  |  |  |
 | fish | ✓ | ✓ | ✓ |  |  | `fish-lsp` |
@@ -122,6 +123,7 @@
 | html | ✓ | ✓ |  |  | ✓ | `vscode-html-language-server`, `superhtml` |
 | htmldjango | ✓ |  |  |  |  | `djlsp`, `vscode-html-language-server`, `superhtml` |
 | hurl | ✓ | ✓ | ✓ |  |  |  |
+| hy | ✓ |  |  |  |  | `hyuga` |
 | hyprlang | ✓ |  | ✓ |  |  | `hyprls` |
 | idris |  |  |  |  |  | `idris2-lsp` |
 | iex | ✓ |  |  |  |  |  |
@@ -225,10 +227,12 @@
 | regex | ✓ |  |  |  | ✓ |  |
 | rego | ✓ |  |  |  |  | `regols` |
 | rescript | ✓ | ✓ |  |  |  | `rescript-language-server` |
+| ripple | ✓ |  |  |  |  | `ripple-language-server` |
 | rmarkdown | ✓ |  | ✓ |  |  | `R` |
 | robot | ✓ |  |  |  |  | `robotframework_ls` |
 | robots.txt | ✓ | ✓ |  | ✓ |  |  |
 | ron | ✓ |  | ✓ | ✓ | ✓ | `ron-lsp` |
+| rpmspec | ✓ |  |  |  |  |  |
 | rshtml | ✓ | ✓ |  |  |  | `rshtml-analyzer`, `vscode-html-language-server`, `superhtml` |
 | rst | ✓ |  |  |  |  |  |
 | ruby | ✓ | ✓ | ✓ | ✓ | ✓ | `ruby-lsp`, `solargraph` |
@@ -237,6 +241,7 @@
 | rust-format-args-macro | ✓ | ✓ | ✓ |  | ✓ |  |
 | sage | ✓ | ✓ |  |  |  |  |
 | scala | ✓ | ✓ | ✓ |  |  | `metals` |
+| scfg | ✓ |  |  |  |  |  |
 | scheme | ✓ | ✓ | ✓ |  | ✓ |  |
 | scss | ✓ |  |  |  | ✓ | `vscode-css-language-server` |
 | shellcheckrc | ✓ | ✓ |  |  |  |  |
@@ -249,7 +254,7 @@
 | snakemake | ✓ |  | ✓ |  |  | `pylsp` |
 | solidity | ✓ | ✓ |  |  |  | `solc` |
 | sourcepawn | ✓ | ✓ |  |  |  | `sourcepawn-studio` |
-| spade | ✓ |  | ✓ |  |  | `spade-language-server` |
+| spade | ✓ |  | ✓ |  | ✓ | `spade-language-server` |
 | spicedb | ✓ |  |  | ✓ |  |  |
 | sql | ✓ | ✓ |  |  |  |  |
 | sshclientconfig | ✓ |  |  |  |  |  |
@@ -259,7 +264,7 @@
 | supercollider | ✓ |  |  |  |  |  |
 | svelte | ✓ |  | ✓ |  |  | `svelteserver` |
 | sway | ✓ | ✓ | ✓ |  |  | `forc` |
-| swift | ✓ | ✓ |  |  | ✓ | `sourcekit-lsp` |
+| swift | ✓ | ✓ | ✓ |  | ✓ | `sourcekit-lsp` |
 | systemd | ✓ |  |  |  |  | `systemd-lsp` |
 | systemverilog | ✓ |  |  |  |  |  |
 | t32 | ✓ |  |  |  |  |  |
@@ -301,6 +306,7 @@
 | wgsl | ✓ | ✓ | ✓ | ✓ | ✓ | `wgsl-analyzer` |
 | wikitext | ✓ |  |  |  |  | `wikitext-lsp` |
 | wit | ✓ |  | ✓ |  |  |  |
+| woodpecker-ci | ✓ | ✓ | ✓ | ✓ | ✓ | `yaml-language-server` |
 | wren | ✓ | ✓ | ✓ |  |  |  |
 | xit | ✓ |  |  |  |  |  |
 | xml | ✓ | ✓ | ✓ |  | ✓ |  |
