@@ -113,6 +113,8 @@ pub fn grapheme_width(g: &str) -> usize {
         // We use max(1) here because all grapeheme clusters--even illformed
         // ones--should have at least some width so they can be edited
         // properly.
+        // TODO properly handle unicode width for all codepoints
+        // example of where unicode width is currently wrong: 🤦🏼‍♂️ (taken from https://hsivonen.fi/string-length/)
         UnicodeWidthStr::width(g).max(1)
     }
 }
@@ -271,7 +273,7 @@ impl Drop for GraphemeStr<'_> {
         if self.len & Self::MASK_OWNED != 0 {
             // free allocation
             unsafe {
-                drop(Box::from_raw(slice::from_raw_parts_mut(
+                drop(Box::from_raw(std::ptr::slice_from_raw_parts_mut(
                     self.ptr.as_ptr(),
                     self.compute_len(),
                 )));
