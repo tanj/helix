@@ -5,7 +5,6 @@ use-grammars = { except = [ "wren", "gemini" ] }
 
 [language-server]
 
-actions-language-server = {command = "actions-languageserver", args = ["--stdio"]}
 ada-gpr-language-server = {command = "ada_language_server", args = ["--language-gpr"]}
 ada-language-server = { command = "ada_language_server" }
 als = { command = "als" }
@@ -113,6 +112,7 @@ pyright = { command = "pyright-langserver", args = ["--stdio"], config = {} }
 protols = { command = "protols", args = [] }
 basedpyright = { command = "basedpyright-langserver", args = ["--stdio"], config = {} }
 pylyzer = { command = "pylyzer", args = ["--server"] }
+pytest-language-server = { command = "pytest-language-server" }
 qmlls = { command = "qmlls" }
 quint-language-server = { command = "quint-language-server", args = ["--stdio"] }
 r = { command = "R", args = ["--no-echo", "-e", "languageserver::run()"] }
@@ -123,6 +123,7 @@ ripple-lsp = { command = "ripple-language-server", args = ["--stdio"] }
 robotcode = { command = "robotcode", args = ["language-server", "--stdio"] }
 robotframework_ls = { command = "robotframework_ls" }
 ron-lsp = { command = "ron-lsp" }
+roslyn-language-server = { command = "roslyn-language-server", args = ["--stdio", "--autoLoadProjects"] }
 ruff = { command = "ruff", args = ["server"] }
 ruby-lsp = { command = "ruby-lsp" }
 rshtml-analyzer = { command = "rshtml-analyzer", args = ["--stdio"] }
@@ -173,6 +174,14 @@ teal-language-server = { command = "teal-language-server" }
 wasm-language-tools = { command = "wat_server" }
 sourcepawn-studio = { command = "sourcepawn-studio" }
 luau = { command = "luau-lsp", args = ["lsp"] }
+zizmor = { command = "zizmor", args = ["--lsp"]}
+
+[language-server.actions-language-server]
+command = "actions-languageserver"
+args = ["--stdio"]
+
+[language-server.actions-language-server.config.actions-language-server]
+sessionToken = ""
 
 [language-server.ansible-language-server]
 command = "ansible-language-server"
@@ -766,7 +775,7 @@ roots = ["*.slnx", "*.sln", "*.csproj"]
 comment-tokens = ["//", "///"]
 block-comment-tokens = { start = "/*", end = "*/" }
 indent = { tab-width = 4, unit = "\t" }
-language-servers = [ "omnisharp", "csharp-ls" ]
+language-servers = [ "roslyn-language-server", "omnisharp", "csharp-ls" ]
 
 [language.debugger]
 name = "netcoredbg"
@@ -1214,6 +1223,7 @@ file-types = [
   { glob = "Podfile" },
   { glob = "Vagrantfile" },
   { glob = "Brewfile" },
+  { glob = "*.Brewfile" },
   { glob = "Guardfile" },
   { glob = "Capfile" },
   { glob = "Cheffile" },
@@ -1926,6 +1936,18 @@ name = "perl"
 source = { git = "https://github.com/tree-sitter-perl/tree-sitter-perl", rev = "72a08a496a23212f23802490ef6f4700d68cfd0e" }
 
 [[language]]
+name = "embedded-perl"
+scope = "text.html.ep"
+injection-regex = "embedded-perl"
+file-types = ["ep", { glob = "*.html.ep" }]
+comment-token = "%#"
+indent = { tab-width = 2, unit = "  " }
+
+[[grammar]]
+name = "embedded-perl"
+source = { git = "https://github.com/jobindex-open/tree-sitter-embedded-perl", rev = "14b9a948030edd99c132b78a3d3dc2c7537a061b" }
+
+[[language]]
 name = "pod"
 scope = "source.pod"
 injection-regex = "pod"
@@ -2052,7 +2074,7 @@ injection-regex = "mail|eml|email"
 
 [[grammar]]
 name = "mail"
-source = { git = "https://codeberg.org/ficd/tree-sitter-mail", rev = "8e60f38efbae1cc5f22833ae13c5500dd0f3b12f" }
+source = { git = "https://codeberg.org/ficd/tree-sitter-mail", rev = "5eddbfdbec4c893182c79047499901c196332e78" }
 
 [[language]]
 name = "markdown"
@@ -2139,7 +2161,7 @@ language-servers = [ "metals" ]
 
 [[grammar]]
 name = "scala"
-source = { git = "https://github.com/tree-sitter/tree-sitter-scala", rev = "7891815f42dca9ed6aeb464c2edc39d479ab965c" }
+source = { git = "https://github.com/tree-sitter/tree-sitter-scala", rev = "2d55e74b0485fe05058ffe5e8155506c9710c767" }
 
 [[language]]
 name = "dockerfile"
@@ -2171,6 +2193,7 @@ source = { git = "https://github.com/camdencheek/tree-sitter-dockerfile", rev = 
 
 [[language]]
 name = "docker-compose"
+language-id = "dockercompose"
 scope = "source.yaml.docker-compose"
 roots = ["docker-compose.yaml", "docker-compose.yml", "compose.yaml", "compose.yml"]
 language-servers = [ "docker-compose-langserver", "yaml-language-server", "docker-language-server" ]
@@ -2207,7 +2230,7 @@ grammar = "gitcommit"
 [[language]]
 name = "github-action"
 scope = "source.yaml.github-action"
-language-servers = [ "actions-language-server", "yaml-language-server" ]
+language-servers = [ "actions-language-server", "yaml-language-server", "zizmor" ]
 file-types = [{ glob = ".github/workflows/*.yaml" }, { glob = ".github/workflows/*.yml" }]
 comment-token = "#"
 indent = { tab-width = 2, unit = "  " }
@@ -2250,7 +2273,7 @@ source = { git = "https://github.com/tree-sitter/tree-sitter-regex", rev = "e1cf
 [[language]]
 name = "git-config"
 scope = "source.gitconfig"
-file-types = ["gitconfig", { glob = ".gitmodules" }, { glob = "gitconfig" }, { glob = ".gitconfig" }, { glob = ".git/config" }, { glob = ".config/git/config" }]
+file-types = ["gitconfig", { glob = ".gitmodules" }, { glob = "gitconfig" }, { glob = ".gitconfig" }, { glob = ".git/config" }, { glob = ".config/git/config" }, { glob = ".git/modules/*/config" }, { glob = "config.worktree" }]
 injection-regex = "git-config"
 comment-token = "#"
 indent = { tab-width = 4, unit = "\t" }
@@ -2936,7 +2959,7 @@ language-servers = [ "fortls" ]
 
 [[grammar]]
 name = "fortran"
-source = { git = "https://github.com/stadelmanma/tree-sitter-fortran", rev = "8334abca785db3a041292e3b3b818a82a55b238f" }
+source = { git = "https://github.com/stadelmanma/tree-sitter-fortran", rev = "2880b7aab4fb7cc618de1ef3d4c6d93b2396c031" }
 
 [[language]]
 name = "ungrammar"
@@ -3912,7 +3935,7 @@ name = "jjconfig"
 scope = "source.jjconfig"
 injection-regex = "jjconfig"
 grammar = "toml"
-file-types = [{ glob = "jj/config.toml" }, { glob = "jj/conf.d/*.toml" }, { glob = ".jj/repo/*.toml" }]
+file-types = [{ glob = "jj/config.toml" }, { glob = "jj/**/*.toml" }, { glob = ".jj/repo/*.toml" }]
 comment-token = "#"
 language-servers = [ "taplo", "tombi" ]
 indent = { tab-width = 2, unit = "  " }
@@ -4634,7 +4657,7 @@ indent = { tab-width = 4, unit = "    " }
 
 [[grammar]]
 name = "spade"
-source = { git = "https://gitlab.com/spade-lang/tree-sitter-spade", rev = "6569cd11cc9362e277845ce24111735059b145ee" }
+source = { git = "https://codeberg.org/spade-lang/tree-sitter-spade", rev = "996aaabea9a9fbe498ae0876356028a78e6ef8db" }
 
 [[language]]
 name = "amber"
@@ -5094,6 +5117,7 @@ comment-token = ".."
 
 [[language]]
 name = "docker-bake"
+language-id = "dockerbake"
 scope = "source.docker-bake"
 injection-regex = "docker-bake"
 grammar = "hcl"
@@ -5181,10 +5205,6 @@ indent = {tab-width = 2, unit = "  "}
 '"' = '"'
 '“' = '”'
 '‘' = '’'
-
-[[grammar]]
-name = "bovex"
-source = { git = "https://github.com/mi2ebi/tree-sitter-bovex", rev = "de7657a9cc3525b9b77c6d268da09dad5b1346b0" }
 
 [[language]]
 name = "haxe"
