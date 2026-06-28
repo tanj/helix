@@ -91,7 +91,12 @@ fn setup_integration_logging() {
 }
 
 impl Application {
-    pub fn new(args: Args, config: Config, lang_loader: syntax::Loader) -> Result<Self, Error> {
+    pub fn new(
+        args: Args,
+        config: Config,
+        lang_loader: syntax::Loader,
+        workspace_trust: helix_loader::workspace_trust::WorkspaceTrust,
+    ) -> Result<Self, Error> {
         #[cfg(feature = "integration")]
         setup_integration_logging();
 
@@ -124,6 +129,7 @@ impl Application {
                 &config.editor
             })),
             handlers,
+            workspace_trust,
         );
         Self::load_configured_theme(&mut editor, &config.load(), &mut terminal, theme_mode);
 
@@ -321,7 +327,9 @@ impl Application {
                     self.handle_terminal_events(event).await;
                 }
                 Some(callback) = self.jobs.callbacks.recv() => {
-                    self.jobs.handle_callback(&mut self.editor, &mut self.compositor, Ok(Some(callback)));
+                    if let Some(job) = self.jobs.handle_callback(&mut self.editor, &mut self.compositor, Ok(Some(callback))) {
+                        self.jobs.add(job);
+                    }
                     self.render().await;
                 }
                 Some(msg) = self.jobs.status_messages.recv() => {
@@ -336,7 +344,9 @@ impl Application {
                     helix_event::request_redraw();
                 }
                 Some(callback) = self.jobs.wait_futures.next() => {
-                    self.jobs.handle_callback(&mut self.editor, &mut self.compositor, callback);
+                    if let Some(job) = self.jobs.handle_callback(&mut self.editor, &mut self.compositor, callback) {
+                        self.jobs.add(job);
+                    }
                     self.render().await;
                 }
                 event = self.editor.wait_event() => {
@@ -409,10 +419,15 @@ impl Application {
             let default_config = Config::load_default()
                 .map_err(|err| anyhow::anyhow!("Failed to load config: {}", err))?;
 
+            // Apply any change to editor.workspace_trust before reading local language config.
+            self.editor
+                .workspace_trust
+                .set_config((&default_config.editor.workspace_trust).into());
+
             // Update the syntax language loader before setting the theme. Setting the theme will
             // call `Loader::set_scopes` which must be done before the documents are re-parsed for
             // the sake of locals highlighting.
-            let lang_loader = helix_core::config::user_lang_loader(default_config.editor.insecure)?;
+            let lang_loader = helix_core::config::user_lang_loader(&self.editor.workspace_trust)?;
             self.editor.syn_loader.store(Arc::new(lang_loader));
             Self::load_configured_theme(
                 &mut self.editor,
@@ -1345,12 +1360,7 @@ impl Application {
             errs.push(err);
         }
 
-        if self.editor.close_language_servers(None).await.is_err() {
-            log::error!("Timed out waiting for language servers to shutdown");
-            errs.push(anyhow::format_err!(
-                "Timed out waiting for language servers to shutdown"
-            ));
-        }
+        self.editor.close_language_servers(None).await;
 
         errs
     }
